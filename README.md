@@ -1,4 +1,4 @@
-# Exponential Platform DXP v5 (Stable; Platform v5; Open Source; Starter Skeleton)
+# Exponential Platform DXP Starter Distribution (Stable; Platform v5; Open Source)
 
 [![PHP](https://img.shields.io/badge/PHP-8.3%2B-8892BF?logo=php&logoColor=white)](https://php.net)
 [![Symfony](https://img.shields.io/badge/Symfony-7.4%20LTS-000000?logo=symfony&logoColor=white)](https://symfony.com)
