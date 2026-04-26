@@ -1,0 +1,1 @@
+(self.webpackChunk=self.webpackChunk||[]).push([[1290],{1634(){document.getElementById("url_wildcard_list_type").addEventListener("change",function(){this.form.submit()})}},e=>{var t;t=1634,e(e.s=t)}]);

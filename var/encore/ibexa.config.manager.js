@@ -1,0 +1,1 @@
+module.exports = [".\/vendor\/ibexa\/fieldtype-matrix\/src\/bundle\/Resources\/encore\/ibexa.config.manager.js"];

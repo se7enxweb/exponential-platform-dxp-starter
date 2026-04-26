@@ -1,0 +1,1 @@
+(self.webpackChunk=self.webpackChunk||[]).push([[5233],{2725(){document.getElementById("search_data_status").addEventListener("change",function(){this.form.submit()})}},e=>{var t;t=2725,e(e.s=t)}]);

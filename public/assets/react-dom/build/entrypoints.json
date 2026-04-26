@@ -1,0 +1,9 @@
+{
+  "entrypoints": {
+    "ibexa-admin-ui-react-dom-load-js": {
+      "js": [
+        "/assets/react-dom/build/ibexa-admin-ui-react-dom-load-js.js"
+      ]
+    }
+  }
+}
