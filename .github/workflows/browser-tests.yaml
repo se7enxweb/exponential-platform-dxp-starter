@@ -1,29 +1,28 @@
 name: Browser tests
 
+# Installs this skeleton (the tagged or chosen version) as an Exponential
+# Platform DXP project on SQLite and checks the front page and the admin
+# login in Chromium. Runs for every pushed tag and on demand.
+
 on:
     push:
         tags:
             - 'v*'
+    workflow_dispatch:
+        inputs:
+            project-version:
+                description: 'Released version to test (empty: the branch the run starts from)'
+                required: false
+                type: string
+                default: ''
+
+permissions:
+    contents: read
 
 jobs:
-    trigger-browser-tests:
+    browser-tests:
         name: Browser tests
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/create-github-app-token@v2
-            name: Generate token
-            id: generate_token
-            with:
-                app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
-                private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
-                owner: ${{ github.repository_owner }}
-          - uses: octokit/request-action@v2.x
-            name: Trigger browser tests
-            with:
-                repository: ibexa/oss
-                workflow: "browser-tests.yml"
-                ref: ${{ github.ref_name }}
-                route: POST /repos/{repository}/actions/workflows/{workflow}/dispatches
-                inputs: '{ "send-success-notification": "true", "project-version": "${{ github.ref_name }}" }'
-            env:
-                GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+        uses: se7enxweb/gh-workflows/.github/workflows/browser-tests.yml@main
+        with:
+            project-version: ${{ github.ref_type == 'tag' && github.ref_name || inputs.project-version }}
+        secrets: inherit
